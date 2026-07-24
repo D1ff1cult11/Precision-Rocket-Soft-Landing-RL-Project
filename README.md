@@ -38,6 +38,14 @@ Generate training metrics plots (`plots/training_metrics.png`):
 python main.py --plot
 ```
 
+## Future Work & Scaling the Architecture
+
+While this 1D implementation proves the mathematical stability of the core PPO and PBRS algorithms, the architecture was intentionally designed to scale. My immediate next steps for expanding this project include:
+
+1. **Expanding to 6-DOF (Degrees of Freedom):** Upgrading the custom physics engine from 1D vertical drops to full 3D spatial dynamics, introducing rotational inertia, gimbaling thrust, and lateral wind resistance to simulate real-world SpaceX-style booster landings.
+2. **Continuous Action Spaces:** Transitioning the discrete action space (Thrust On/Off) to a continuous space (Variable Thrust Output), which will allow for much smoother, fuel-optimized deceleration burns.
+3. **Distributed Training Architecture:** Scaling the training pipeline using Ray or PyTorch Distributed Data Parallel (DDP). By deploying multiple environment workers simultaneously across GPUs (if available), I can massively accelerate experience collection and tackle highly complex, multi-agent scenarios like synchronized booster landings.
+
 ## Setup & Requirements
 Install the required dependencies using pip:
 ```bash
