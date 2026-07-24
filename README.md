@@ -1,14 +1,14 @@
 # Precision Rocket Soft-Landing RL
 
-A highly rigorous Reinforcement Learning project showcasing Proximal Policy Optimization (PPO) with Potential-Based Reward Shaping applied to a 1D vertical rocket soft-landing environment.
+A rigorous Reinforcement Learning project showcasing Proximal Policy Optimization (PPO) with Potential-Based Reward Shaping applied to a 1D vertical rocket soft-landing environment.
 
 ## Overview
-This project solves a classic continuous control problem: landing a rocket exactly on a target pad while minimizing fuel, stripped down to a pure 1D vertical drop to demonstrate flawless algorithmic convergence.
+This project solves a classic control problem: landing a rocket exactly on a target pad while minimizing fuel, stripped down to a pure 1D vertical drop to demonstrate flawless algorithmic convergence.
 
-## Why this is a superior RL implementation:
+## Why this RL implementation:
 
-1. **Mathematically Immune to Reward Hacking**: Instead of ad-hoc heuristic rewards, this project uses **Potential-Based Reward Shaping (PBRS)** (Ng et al., 1999). We use a shaping function $F(s, s') = \gamma \Phi(s') - \Phi(s)$ where $\Phi(s)$ is the potential field measuring the distance to the goal state. This is mathematically proven to accelerate learning without altering the optimal policy, effectively rendering "reward hacking" impossible.
-2. **State-of-the-Art PPO**: We utilize an Actor-Critic Multi-Layer Perceptron (MLP) trained with Proximal Policy Optimization. It features Generalized Advantage Estimation (GAE-$\lambda$), surrogate loss clipping, and entropy regularization to ensure robust convergence.
+1. **Mathematically Immune to Reward Hacking**: Instead of ad-hoc heuristic rewards, this project uses **Potential-Based Reward Shaping (PBRS)** (Ng et al., 1999). I use a shaping function $F(s, s') = \gamma \Phi(s') - \Phi(s)$ where $\Phi(s)$ is the potential field measuring the distance to the goal state. This is mathematically proven to accelerate learning without altering the optimal policy, effectively rendering "reward hacking" impossible.
+2. **State-of-the-Art PPO**: I utilize an Actor-Critic Multi-Layer Perceptron (MLP) trained with Proximal Policy Optimization. It features Generalized Advantage Estimation (GAE-$\lambda$), surrogate loss clipping, and entropy regularization to ensure robust convergence.
 3. **From-Scratch Physics Engine**: A custom `Gymnasium`-compliant environment featuring 1D rigid body dynamics, gravity, vertical thrust, Euler integration, and strict fuel limits. Because of the simplified 1D state, the agent converges to a **100% success rate** in under 200,000 timesteps.
 
 ## Project Structure
